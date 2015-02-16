@@ -72,3 +72,11 @@
   width: 100%;
   margin-bottom: 0.5em;
 }
+
+#tags button.tag > span {
+  float: left;
+}
+
+#tags button.tag > span.badge {
+  float: right;
+}
