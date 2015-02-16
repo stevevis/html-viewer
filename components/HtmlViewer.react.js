@@ -55,24 +55,30 @@ var HtmlViewer = React.createClass({
     if (!url) return;
 
     getSummary(url, function(response) {
-      this.setState({ 
-        source: response.body.source,
-        tags: response.body.tags
-      });
+      if (response.ok) {
+        this.setState({ 
+          source: response.body.source,
+          tags: response.body.tags
+        });
 
-      // Highlight the source code using Prism
-      Prism.highlightAll();
-    }.bind(this), function(error) {
-      this.setState({
-        source: "Could not load source",
-        tags: [
-          { 
-            name: 'Error',
-            count: 0 
-          }
-        ]
-      })
-    }.bind(this));
+        // Highlight the source code using Prism
+        Prism.highlightAll();
+      } else {
+        this.handleError()
+      }
+    }.bind(this), this.handleError);
+  },
+
+  handleError: function() {
+    this.setState({
+      source: "Could not load source",
+      tags: [
+        { 
+          name: 'Error',
+          count: 0 
+        }
+      ]
+    })
   },
 
   handleUrlChange: function(e) {
