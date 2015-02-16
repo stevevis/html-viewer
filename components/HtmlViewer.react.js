@@ -7,10 +7,11 @@ var TagsPanel = require('./TagsPanel.react');
 var SourcePanel = require('./SourcePanel.react');
 
 // Request a summary of the HTML at the URL from the SummaryController
-var getSummary = function(url, callback) {
+var getSummary = function(url, callback, error) {
   request
     .get('/summary')
     .query({url: url})
+    .on('error', error)
     .end(callback);
 }
 
@@ -20,7 +21,7 @@ var HtmlViewer = React.createClass({
       source: 'No source',
       tags: [
         { 
-          name: 'No Tags',
+          name: 'No tags',
           count: 0 
         }
       ]
@@ -32,10 +33,6 @@ var HtmlViewer = React.createClass({
 
     // Add a prism hook so we can add custom CSS classes to HTML tags so we can highlight them
     Prism.hooks.add('wrap', function(env) {
-      //if (env.type === 'tag' || env.type === 'script') {
-        //console.log(env);
-      //}
-
       this.state.tags.forEach(function(tag) {
         // The content property for the tag element will look like "...</span>tagname"
         if ((env.type === 'tag' || env.type === 'script') 
@@ -65,6 +62,16 @@ var HtmlViewer = React.createClass({
 
       // Highlight the source code using Prism
       Prism.highlightAll();
+    }.bind(this), function(error) {
+      this.setState({
+        source: "Could not load source",
+        tags: [
+          { 
+            name: 'Error',
+            count: 0 
+          }
+        ]
+      })
     }.bind(this));
   },
 

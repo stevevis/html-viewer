@@ -9,7 +9,8 @@
     "build": "npm run browserify ",
     "start": "npm run watch & nodemon --harmony server.js",
     "prod": "npm run build && NODE_ENV=production forever start --uid \"htmlviewer\" -c \"node --harmony\" -a server.js",
-    "stop": "forever stop htmlviewer"
+    "stop": "forever stop htmlviewer",
+    "update": "git pull && npm run stop && npm run prod"
   },
   "author": "Steve Viselli",
   "license": "MIT",
