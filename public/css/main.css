@@ -1,0 +1,74 @@
+/* Navbar style */
+
+.navbar {
+    margin-bottom: 0;
+    min-height: 0;
+}
+
+.navbar-inverse .navbar-header p {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #37BC9B;
+}
+
+/* URL bar style */
+
+.url-row {
+    margin-bottom: 10px;
+    background-color: #eee;
+    border-bottom: solid 1px #ccc;
+}
+
+.url-row .navbar-form {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.url-row .form-group {
+    width: 90%;
+    padding-right: 10px;
+}
+
+.url-row .form-control {
+    width: 100%;
+}
+
+.url-row button {
+    width: 10%;
+}
+
+/* Search results style */
+
+.panel {
+    border-radius: 0;
+}
+
+.panel-heading h5 {
+    margin: 0;
+}
+
+.panel-body .dl-horizontal {
+    margin: 0;
+}
+
+.panel-body dt {
+    width: 60px;
+}
+
+.panel-body dd {
+    margin-left: 80px;
+}
+
+/* Source panel style */
+
+#source pre {
+  margin: 0;
+  padding: 0.5em 1em;
+}
+
+/* Tags panel style */
+
+#tags button.tag {
+  width: 100%;
+  margin-bottom: 0.5em;
+}
