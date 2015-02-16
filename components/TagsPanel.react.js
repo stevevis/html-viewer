@@ -31,7 +31,7 @@ var TagsPanel = React.createClass({
           {this.props.tags.map(function(tag) {
             return (
               <button key={tag.name} className="btn btn-info tag" type="button" onClick={this.handleClick.bind(this, tag.name)}>
-                { tag.name }<span className="badge">{ tag.count }</span>
+                { '<' + tag.name + '>' }<span className="badge">{ tag.count }</span>
               </button>
             )
           }.bind(this))}

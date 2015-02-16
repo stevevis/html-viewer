@@ -52,7 +52,7 @@ var orderTags = function(tags) {
 
   for (var tag in tags) {
     if (tags.hasOwnProperty(tag)) {
-      orderedTags.push({ name: '<' + tag + '>', count: tags[tag] });
+      orderedTags.push({ name: tag, count: tags[tag] });
     }
   }
 
