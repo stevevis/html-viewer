@@ -13,7 +13,7 @@ var getSummary = function(url, callback, error) {
     .query({url: url})
     .on('error', error)
     .end(callback);
-}
+};
 
 var HtmlViewer = React.createClass({
   getInitialState: function() {
@@ -35,12 +35,12 @@ var HtmlViewer = React.createClass({
     Prism.hooks.add('wrap', function(env) {
       this.state.tags.forEach(function(tag) {
         // The content property for the tag element will look like "...</span>tagname"
-        if ((env.type === 'tag' || env.type === 'script') 
-            && (new RegExp('<\/span>' + tag.name + '$')).test(env.content)) {
+        if ((env.type === 'tag' || env.type === 'script') &&
+            (new RegExp('<\/span>' + tag.name + '$')).test(env.content)) {
           env.classes.push('tag-' + tag.name);
           currentTag = tag.name;
         }
-      })
+      });
 
       if (currentTag && env.type === 'punctuation' && env.content === '>') {
         env.classes.push('tag-' + currentTag);
@@ -52,7 +52,9 @@ var HtmlViewer = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
     var url = this.refs.url.getDOMNode().value.trim();
-    if (!url) return;
+    if (!url) { 
+      return;
+    }
 
     getSummary(url, function(response) {
       if (response.ok) {
@@ -64,21 +66,21 @@ var HtmlViewer = React.createClass({
         // Highlight the source code using Prism
         Prism.highlightAll();
       } else {
-        this.handleError()
+        this.handleError();
       }
     }.bind(this), this.handleError);
   },
 
   handleError: function() {
     this.setState({
-      source: "Could not load source",
+      source: 'Could not load source',
       tags: [
         { 
           name: 'Error',
           count: 0 
         }
       ]
-    })
+    });
   },
 
   handleUrlChange: function(e) {
@@ -87,10 +89,10 @@ var HtmlViewer = React.createClass({
 
     // If the URL is valid, enable the button, otherwise disable
     if (validator.isURL(url)) {
-      buttonNode.removeAttribute("disabled");
+      buttonNode.removeAttribute('disabled');
     } else {
-      if (!buttonNode.hasAttribute("disabled")) {
-        buttonNode.setAttribute("disabled", "disabled");
+      if (!buttonNode.hasAttribute('disabled')) {
+        buttonNode.setAttribute('disabled', 'disabled');
       }
     }
   },

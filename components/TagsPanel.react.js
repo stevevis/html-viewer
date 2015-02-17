@@ -6,7 +6,7 @@ var TagsPanel = React.createClass({
   getInitialState: function() {
     return {
       highlighted: null
-    }
+    };
   },
 
   handleClick: function(tagName) {
@@ -21,7 +21,7 @@ var TagsPanel = React.createClass({
     // Set the state to the store the highlighted tag
     this.setState({
       highlighted: tagName
-    })
+    });
   },
 
   render: function() {

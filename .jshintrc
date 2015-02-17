@@ -1,5 +1,6 @@
 {
   "browser": true,
+  "browserify": true,
   "esnext": true,
   "bitwise": true,
   "camelcase": true,
@@ -7,12 +8,15 @@
   "eqeqeq": true,
   "immed": true,
   "indent": 2,
+  "jquery": true,
   "latedef": true,
+  "mocha": true,
   "newcap": true,
   "noarg": true,
+  "node": true,
+  "maxdepth": 3,
   "quotmark": "single",
   "undef": true,
   "unused": true,
-  "strict": true,
-  "jquery": true
+  "strict": true
 }
