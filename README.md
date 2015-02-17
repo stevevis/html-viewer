@@ -42,6 +42,7 @@ I originally wanted to append the extra CSS classes for tag highlighting to the 
 ### Improvements
 
 - Use [Gulp](http://gulpjs.com/) to manage build tasks
+- Use [Bower](http://bower.io/) to manage front-end dependencies
 - Minify application CSS file
 - Concatenate vendor CSS files into a single file
 - Concatenate vendor javasscript files into a single file
