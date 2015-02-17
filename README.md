@@ -51,4 +51,4 @@ I originally wanted to append the extra CSS classes for tag highlighting to the 
 - Sort tags with the same count alphabetically
 - Implement sorting and filtering for the tag list
 - When a tag button is clicked scroll to the first occurance in the source
-- Lets tags in the source be clicked to highlight all occurances
+- Let tags in the source be clicked to highlight all occurances
