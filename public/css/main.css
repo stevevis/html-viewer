@@ -72,15 +72,15 @@
 
 /* Tags panel style */
 
-#tags button.tag {
+#tags .tag-btn {
   width: 100%;
   margin-bottom: 0.5em;
 }
 
-#tags button.tag > span {
+#tags .tag-btn > span {
   float: left;
 }
 
-#tags button.tag > span.badge {
+#tags .tag-btn > .badge {
   float: right;
 }

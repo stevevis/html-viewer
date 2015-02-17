@@ -92,7 +92,7 @@ var HtmlViewer = React.createClass({
       buttonNode.removeAttribute('disabled');
     } else {
       if (!buttonNode.hasAttribute('disabled')) {
-        buttonNode.setAttribute('disabled', 'disabled');
+        buttonNode.setAttribute('disabled', '');
       }
     }
   },
@@ -104,9 +104,9 @@ var HtmlViewer = React.createClass({
           <div className="col-md-12">
             <form className="form-inline navbar-form" role="form" onSubmit={this.handleSubmit}>
               <div className="form-group">
-                <input type="text" className="form-control address" id="view-url" placeholder="Enter a URL" ref="url" onChange={this.handleUrlChange} />
+                <input type="text" className="form-control address" placeholder="Enter a URL" ref="url" onChange={this.handleUrlChange} />
               </div>
-              <button type="submit" className="btn btn-primary" ref="requestButton" disabled="disabled">Request</button>
+              <button type="submit" className="btn btn-primary request" ref="requestButton" disabled="disabled">Request</button>
             </form>
           </div>
         </div>

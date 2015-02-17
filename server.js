@@ -2,9 +2,9 @@
 
 // Dependencies
 var koa = require('koa');
+var views = require('koa-views');
 var logger = require('koa-logger');
 var koaStatic = require('koa-static');
-var nunjucks = require('koajs-nunjucks');
 var errorHandler = require('koa-error');
 var responseTime = require('koa-response-time');
 
@@ -23,7 +23,7 @@ if (app.env === 'development') {
 // Setup middleware
 app.use(responseTime());
 app.use(errorHandler());
-app.use(nunjucks('views'));
+app.use(views('views'));
 app.use(koaStatic(__dirname + '/public/'));
 
 // Initialize the router

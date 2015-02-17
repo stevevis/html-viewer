@@ -41,6 +41,7 @@ I originally wanted to append the extra CSS classes for tag highlighting to the 
 
 ### Improvements
 
+- Use [Jest](http://facebook.github.io/jest/) to unit test React components
 - Use [Gulp](http://gulpjs.com/) to manage build tasks
 - Use [Bower](http://bower.io/) to manage front-end dependencies
 - Minify application CSS file
