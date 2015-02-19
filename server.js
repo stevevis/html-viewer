@@ -3,13 +3,14 @@
 // Dependencies
 var koa = require('koa');
 var views = require('koa-views');
-var logger = require('koa-logger');
 var koaStatic = require('koa-static');
 var errorHandler = require('koa-error');
+var requestLogger = require('koa-logger');
 var responseTime = require('koa-response-time');
 
 // Local dependencies
-var routes = require('./routes');
+var logger = require('./config/logger');
+var routes = require('./config/routes');
 
 // Initialize the server
 var app = module.exports = koa();
@@ -17,7 +18,7 @@ var port = process.env.PORT || 3000;
 
 // Setup development middleware
 if (app.env === 'development') {
-  app.use(logger());
+  app.use(requestLogger());
 }
 
 // Setup middleware
@@ -32,6 +33,6 @@ routes(app);
 // Start the server if this script wasn't required by another script e.g. a function test script
 if (!module.parent) {
   app.listen(port);
-  console.log('Server started, listening on port: ' + port);
+  logger.info('Server started, listening on port: ' + port);
 }
-console.log('Environment: ' + app.env);
+logger.info('Environment: ' + app.env);
